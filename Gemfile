@@ -1,4 +1,13 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in meetup_invite.gemspec
-gemspec
+gem 'oj'
+gem 'terminal-table'
+gem 'dry-auto_inject'
+gem 'dry-container'
+gem 'colorize'
+
+group :development do
+  gem 'rspec'
+  gem 'pry'
+  gem 'simplecov'
+end
