@@ -1,0 +1,22 @@
+# This file is read line by line, trying to parse each line as a JSON.
+# These comments are ignored by the parser. So are the blank lines.
+// Java inline comments are also supported.
+
+# Legit user which can be parsed
+{"latitude": "52.986375", "user_id": 0, "name": "Foo", "longitude": "-6.043701"}
+
+# User missing attribute name
+{"latitude": "51.92893", "user_id": 1, "longitude": "-10.27699"}
+
+# User with nil value for attribute name
+{"latitude": "51.92893", "user_id": 1, name: null, "longitude": "-10.27699"}
+
+# Legit user which can be parsed.
+{"latitude": "51.92893", "user_id": 1, "name": "Bar", "longitude": "-10.27699"}
+
+# Users with wrong longitude and latitude (coercion errors)
+{"latitude": "51.8856167", "user_id": 1, "name": "McBug", "longitude": "bugbug"}
+{"latitude": "bugbug", "user_id": 2, "name": "Baz", "longitude": "-10.4240951"}
+
+# Another legit user.
+{"latitude": "52.986375", "user_id": 3, "name": "Foo", "longitude": "-6.043701"}

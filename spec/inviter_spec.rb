@@ -12,13 +12,13 @@ RSpec.describe Meetup::Inviter do
   let(:people) do
     [
       # Someone far away from the radius
-      { id: 1, name: 'Sergio', latitude: 52.365091, longitude: 4.925845 },
+      Meetup::Person.new(user_id: 1, name: 'Sergio', latitude: 52.365091, longitude: 4.925845),
       # Someone in the radius and nearby
-      { id: 2, name: 'Conor', latitude: 53.328430, longitude: -6.304864 },
+      Meetup::Person.new(user_id: 2, name: 'Conor', latitude: 53.328430, longitude: -6.304864),
       # Someone in the radius near to the limit
-      { id: 3, name: 'Colin', latitude: 52.865386, longitude: -6.558605 },
+      Meetup::Person.new(user_id: 3, name: 'Colin', latitude: 52.865386, longitude: -6.558605),
       # Someone outside of the radius for a few kilometers
-      { id: 4, name: 'Wiston', latitude: 53.22899, longitude: -4.519761 }
+      Meetup::Person.new(user_id: 4, name: 'Wiston', latitude: 53.22899, longitude: -4.519761)
     ]
   end
 
