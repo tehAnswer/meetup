@@ -1,13 +1,14 @@
-require_relative '../enviroment'
 require 'simplecov'
 require 'pry'
 SimpleCov.start { add_filter '/spec' }
 
+require_relative '../enviroment'
 require 'dry/container/stub'
 Dependencies.enable_stubs!
 
+Dir[File.expand_path('./support/**/*.rb', File.dirname(__FILE__))].each { |f| require f }
+
 RSpec.configure do |config|
-  config.profile_examples = 10
   config.color = true
   config.order = :random
   Kernel.srand config.seed

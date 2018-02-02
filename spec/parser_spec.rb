@@ -1,9 +1,5 @@
 RSpec.describe Meetup::Parser do
-  before do
-    logger = double(error: 'OK', warn: 'OK')
-    Dependencies.stub(:logger, logger)
-  end
-  after  { Dependencies.unstub(:logger) }
+  include_context 'silent logger'
   let(:instance) { Dependencies[:parser] }
 
   subject { instance.parse(file_path) }

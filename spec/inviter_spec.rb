@@ -1,13 +1,5 @@
 RSpec.describe Meetup::Inviter do
-  before do
-    Dependencies.stub(:lat_origin, 53.339428)
-    Dependencies.stub(:lon_origin, -6.257664)
-  end
-
-  after do
-    Dependencies.unstub(:lat_origin)
-    Dependencies.unstub(:lon_origin)
-  end
+  include_context 'mocked location'
 
   let(:people) do
     [

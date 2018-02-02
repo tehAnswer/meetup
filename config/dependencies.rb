@@ -11,4 +11,5 @@ class Dependencies
 
   register(:lat_origin) { ENV['COORDINATES'].split(', ').first.to_f }
   register(:lon_origin) { ENV['COORDINATES'].split(', ').last.to_f  }
+  register(:file_path)  { File.expand_path('../config/users.txt', __FILE__) }
 end
