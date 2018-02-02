@@ -2,7 +2,7 @@ require 'simplecov'
 require 'pry'
 SimpleCov.start { add_filter '/spec' }
 
-require_relative '../enviroment'
+require_relative '../lib/meetup'
 require 'dry/container/stub'
 Dependencies.enable_stubs!
 

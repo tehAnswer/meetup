@@ -3,5 +3,5 @@ RSpec.shared_context 'silent logger' do
     logger = double(error: 'OK', warn: 'OK')
     Dependencies.stub(:logger, logger)
   end
-  after  { Dependencies.unstub(:logger) }
+  after { Dependencies.unstub(:logger) }
 end

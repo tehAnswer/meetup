@@ -21,10 +21,10 @@ module Meetup
     private
 
     def distance(lat1:, lat2:, lon1:, lon2:)
-      delta_lon = (lat2 - lat1).abs
+      delta_lon = (lon2 - lon1).abs
 
-      factor1 = (cos(lat2) * sin(delta_lon)) ** 2
-      factor2 = (cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(delta_lon)) ** 2
+      factor1 = (cos(lat2) * sin(delta_lon))**2
+      factor2 = (cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(delta_lon))**2
       denominator = sin(lat1) * sin(lat2) + cos(lat1) * cos(lat2) * cos(delta_lon)
 
       delta_lat = atan2(sqrt(factor1 + factor2), denominator)

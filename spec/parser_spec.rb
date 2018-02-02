@@ -6,9 +6,9 @@ RSpec.describe Meetup::Parser do
   context 'parse a valid file' do
     let(:people) do
       [
-        Meetup::Person.new(latitude: 52.986375, user_id: 0, name: "Foo", longitude: -6.043701),
-        Meetup::Person.new(latitude: 51.92893, user_id: 1, name: "Bar", longitude: -10.27699),
-        Meetup::Person.new(latitude: 52.986375, user_id: 3, name: "Foo", longitude: -6.043701)
+        Meetup::Person.new(latitude: 52.986375, user_id: 0, name: 'Foo', longitude: -6.043701),
+        Meetup::Person.new(latitude: 51.92893, user_id: 1, name: 'Bar', longitude: -10.27699),
+        Meetup::Person.new(latitude: 52.986375, user_id: 3, name: 'Foo', longitude: -6.043701)
       ]
     end
 
@@ -23,6 +23,6 @@ RSpec.describe Meetup::Parser do
   context 'parse a empty file' do
     let(:file_path) { File.expand_path('../support/empty_file.txt', __FILE__) }
 
-    it { expect(subject.length).to eq(0)   }
+    it { expect(subject.length).to eq(0) }
   end
 end

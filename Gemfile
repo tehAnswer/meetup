@@ -1,15 +1,16 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem 'oj'
-gem 'terminal-table'
+gem 'colorize'
 gem 'dry-auto_inject'
 gem 'dry-container'
 gem 'dry-struct'
 gem 'dry-types'
-gem 'colorize'
+gem 'oj'
+gem 'terminal-table'
 
 group :development do
-  gem 'rspec'
   gem 'pry'
+  gem 'rspec'
+  gem 'rubocop'
   gem 'simplecov'
 end

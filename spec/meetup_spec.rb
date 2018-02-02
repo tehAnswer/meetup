@@ -10,7 +10,7 @@ RSpec.describe 'Meetup' do
   # Sadly, Terminal::Table gem has not implemented  == operator. I am sending a PR to add
   # such method, but in the meantime, string comparasion will do it.
   let(:expected_table) do
-    Terminal::Table.new(title: 'Invited Customers', headings: %w(ID Name), rows: rows).to_s
+    Terminal::Table.new(title: 'Invited Customers', headings: %w[ID Name], rows: rows).to_s
   end
 
   context 'without a custom path' do
