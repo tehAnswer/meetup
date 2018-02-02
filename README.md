@@ -1,39 +1,29 @@
-# MeetupInvite
+# Meetup
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/meetup_invite`. To experiment with that code, run `bin/console` for an interactive prompt.
+The repository contains my solution to the problem propossed by [Intercom](https://blog.intercom.com/how-we-hire-engineers-part-1/) as part of their recruitment process.
 
-TODO: Delete this and the text above, and describe your gem
+The instructions say as follows:
 
-## Installation
+> We have some customer records in a text file (customers.json, attached) one customer per line, JSON-encoded. We want to invite any customer within 100km of our Dublin office (GPS coordinates 53.3381985, -6.2592576) to some food and drinks on us.Write a program that will read the full list of customers and output the names and user ids of matching customers (within 100km), sorted by user id (ascending).
 
-Add this line to your application's Gemfile:
+## Solution
 
-```ruby
-gem 'meetup_invite'
+Here's is a graphic summary of the solution in a form of an UML Class Diagram. It's quite straight-forward: two main classes (Parser and Inviter), a __model_ class (Person) and the entrypoint for the user (the own namespace of the project).
+
+![Class Diagram](docs/diagram.png)
+
+In order to get it running, two ways are provided after the repository's been cloned. The easiest one is to build the image with Docker, which will execute the assignment without any further configuration needed.
+
+```
+docker build -t sergio/meetup .
 ```
 
-And then execute:
+However, by using Docker, you can't modify the call. It will always execute the same code with the same input. In case you would like to try out the code with a different input, let's say a larger set for further testing or different coordinates as a reference, you can still do it manually following the steps down below:
 
-    $ bundle
+```
+bundle install
+COORDINATES="53.339428, -6.257664" rake invite[100]
+COORDINATES="53.339428, -6.257664" rake invite[100, /Another/Abosolute/Path/To/File]
+```
 
-Or install it yourself as:
 
-    $ gem install meetup_invite
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/meetup_invite.
-
-## License
-
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).

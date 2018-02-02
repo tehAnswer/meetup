@@ -1,4 +1,5 @@
 # NOTE: It sucks, but other matters! Inviter depends on the units refinement.
+require_relative '../enviroment'
 require_relative 'meetup/refinements/units'
 require_relative 'meetup/inviter'
 require_relative 'meetup/person'
@@ -6,7 +7,10 @@ require_relative 'meetup/parser'
 
 module Meetup
   InvalidRadius = ArgumentError.new('The radius has to be a number.')
-
+  # Public method and entrypoint which returns a visual representation of the
+  # list of attendees. Ideally, I'd have just returned an array or have printed inside
+  # of this method the table itself. The truth being is that it made tricker and less readable
+  # the specs though.
   def self.attendees_in(radius, file_path = Dependencies[:file_path])
     customer = Dependencies[:parser].parse(file_path)
     customer_on_area = Dependencies[:inviter].invite(customer, max_radius: radius)
